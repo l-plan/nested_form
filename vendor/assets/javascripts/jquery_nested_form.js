@@ -61,7 +61,9 @@
     insertFields: function(content, assoc, link) {
       var target = $(link).data('target');
       if (target) {
-        return $(content).appendTo($(target));
+
+        // return $(content).appendTo($(target)); ### original code....
+        return $(content).appendTo( $(link).closest('fieldset').find(target) );
       } else {
         return $(content).insertBefore(link);
       }
